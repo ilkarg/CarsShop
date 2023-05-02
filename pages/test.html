@@ -1,0 +1,20 @@
+<button onclick="send()">send</button>
+<a href="test">test</a>
+
+<script>
+    function send() {
+        fetch('plus', {
+            method: 'POST',
+            body: JSON.stringify({
+                "num1": 2,
+                "num2": 2
+            })
+        }).then((response) => {
+            return response.text().then(function (text) {
+                alert(text);
+            });
+        });
+
+        document.location = 'test';
+    }
+</script>
