@@ -418,6 +418,7 @@ function drawOrder(name, email, phone, model, price) {
     let pCarPrice = document.createElement("p");
     pCarPrice.classList.add("ms-auto");
     pCarPrice.innerHTML = price;
+    divPrice.appendChild(pCarPrice);
     
     let divInfo = document.createElement("div");
     divInfo.classList.add("charackteristic", "row");
@@ -466,6 +467,7 @@ function drawOrder(name, email, phone, model, price) {
 
     divNameCars.appendChild(divTitle);
     divPriceTitle.appendChild(divNameCars);
+    divPriceTitle.appendChild(divPrice);
     divInfo.appendChild(divPriceTitle);
     divInfo.appendChild(divFio);
     divInfo.appendChild(divEmail);
