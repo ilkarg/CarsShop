@@ -362,3 +362,41 @@ function createFeedback(fio, email, message) {
 
     document.querySelector("#feedbacks").appendChild(divFeedback);
 }
+
+function addOrder() {
+    fetch(`${window.location.origin}/api/v1/addOrder`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: document.querySelector("#orderName").value,
+            email: document.querySelector("#orderEmail").value,
+            phone: document.querySelector("#orderPhone").value,
+            model: document.querySelector("#orderModel").value
+        })
+    }).then(function (response) {
+        return response.json().then(function (resp) {
+            alert("Ваша бронь успешно создана");
+            closeAddPostModal();
+        });
+    });
+}
+
+function getAllOrders() {
+    fetch(`${window.location.origin}/api/v1/getAllOrders`, {
+        method: 'POST'
+    }).then(function (response) {
+        return response.json().then(function (resp) {
+            if (!resp["response"] && Object.keys(resp).length > 0) {
+                Object.keys(resp).map(function(key) {
+                    createOrder(resp[key].name, resp[key].email, resp[key].phone, resp[key].model);
+                });
+            }
+        });
+    });
+}
+
+function drawOrder(name, email, phone, model) {
+
+}

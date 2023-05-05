@@ -30,7 +30,7 @@ class LogicController {
         $data = $router->getPostRouteData();
         if ($data != null) {
             $order_model = new Order($data["name"], $data["email"], $data["phone"], $data["model"]);
-            $order = QueryController::createOrderQuery(
+            $order = QueryController::addOrderQuery(
                 $order_model->name,
                 $order_model->email,
                 $order_model->phone,
@@ -42,8 +42,8 @@ class LogicController {
         }
     }
 
-    public static function getOrders() {
-        $orders = QueryController::getOrdersQuery();
+    public static function getAllOrders() {
+        $orders = QueryController::getAllOrdersQuery();
         echo $orders;
     }
 }

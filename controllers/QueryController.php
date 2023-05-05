@@ -99,4 +99,26 @@ class QueryController {
         }
         return json_encode($feedbacks);
     }
+
+    public static function addOrder(string $name, string $email, string $phone, string $model) {
+        global $orm;
+        $orm->connect();
+        $order = R::dispense("orders");
+        $order->name = $name;
+        $order->email = $email;
+        $order->phone = $phone;
+        $order->model = $model;
+        R::store($model);
+        return json_encode(array("response" => "Бронь успешно создана"));
+    }
+
+    public static function getAllOrdersQuery() {
+        global $orm;
+        $orm->connect();
+        $orders = R::findAll("orders");
+        if ($orders == null) {
+            return json_encode(array("response" => "Orders not found"));
+        }
+        return json_encode($orders);
+    }
 }
