@@ -100,7 +100,7 @@ class QueryController {
         return json_encode($feedbacks);
     }
 
-    public static function addOrder(string $name, string $email, string $phone, string $model) {
+    public static function createOrderQuery(string $name, string $email, string $phone, string $model, string $price) {
         global $orm;
         $orm->connect();
         $order = R::dispense("orders");
@@ -108,7 +108,8 @@ class QueryController {
         $order->email = $email;
         $order->phone = $phone;
         $order->model = $model;
-        R::store($model);
+        $order->price = $price;
+        R::store($order);
         return json_encode(array("response" => "Бронь успешно создана"));
     }
 

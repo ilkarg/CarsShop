@@ -364,7 +364,7 @@ function createFeedback(fio, email, message) {
 }
 
 function addOrder() {
-    fetch(`${window.location.origin}/api/v1/addOrder`, {
+    fetch(`${window.location.origin}/api/v1/createOrder`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -373,7 +373,8 @@ function addOrder() {
             name: document.querySelector("#orderName").value,
             email: document.querySelector("#orderEmail").value,
             phone: document.querySelector("#orderPhone").value,
-            model: document.querySelector("#orderModel").value
+            model: document.querySelector("#orderModel").value,
+            price: "100.000 ₽"
         })
     }).then(function (response) {
         return response.json().then(function (resp) {
@@ -390,13 +391,87 @@ function getAllOrders() {
         return response.json().then(function (resp) {
             if (!resp["response"] && Object.keys(resp).length > 0) {
                 Object.keys(resp).map(function(key) {
-                    createOrder(resp[key].name, resp[key].email, resp[key].phone, resp[key].model);
+                    drawOrder(resp[key].name, resp[key].email, resp[key].phone, resp[key].model, resp[key].price);
                 });
             }
         });
     });
 }
 
-function drawOrder(name, email, phone, model) {
+function drawOrder(name, email, phone, model, price) {
+    let divOrder = document.createElement("div");
+    divOrder.classList.add("col-lg-6");
 
+    let divOrderCard = document.createElement("div");
+    divOrderCard.classList.add("card-car");
+
+    let divPriceTitle = document.createElement("div");
+    divPriceTitle.classList.add("price-title", "d-flex");
+
+    let divNameCars = document.createElement("div");
+    divNameCars.classList.add("name-cars");
+    let divTitle = document.createElement("div");
+    divTitle.innerHTML = `<h1>${model}</h1>`;
+
+    let divPrice = document.createElement("div");
+    divPrice.classList.add("car-price", "ms-auto");
+    let pCarPrice = document.createElement("p");
+    pCarPrice.classList.add("ms-auto");
+    pCarPrice.innerHTML = price;
+    
+    let divInfo = document.createElement("div");
+    divInfo.classList.add("charackteristic", "row");
+
+    let divFio = document.createElement("div");
+    divFio.classList.add("charackteristic-car", "col-lg-6", "col-md-6", "col-6");
+    let divFioIcon = document.createElement("div");
+    divFioIcon.classList.add("icon-block");
+    let fioIcon = document.createElement("img");
+    fioIcon.src = "/pages/admin/img/people.svg";
+    fioIcon.alt = "people";
+    let fio = document.createElement("div");
+    fio.classList.add("text-charackteristik");
+    fio.innerHTML = `<h1>ФИО</h1>\n<p>${name}</p>`;
+    divFioIcon.appendChild(fioIcon);
+    divFio.appendChild(divFioIcon);
+    divFio.appendChild(fio);
+
+    let divEmail = document.createElement("div");
+    divEmail.classList.add("charackteristic-car", "col-lg-6", "col-md-6", "col-6");
+    let divEmailIcon = document.createElement("div");
+    divEmailIcon.classList.add("icon-block");
+    let emailIcon = document.createElement("img");
+    emailIcon.src = "/pages/img/mail.svg";
+    emailIcon.alt = "mail";
+    let _email = document.createElement("div");
+    _email.classList.add("text-charackteristik");
+    _email.innerHTML = `<h1>Email</h1>\n<p>${email}</p>`;
+    divEmailIcon.appendChild(emailIcon);
+    divEmail.appendChild(divEmailIcon);
+    divEmail.appendChild(_email);
+
+    let divPhone = document.createElement("div");
+    divPhone.classList.add("charackteristic-car", "col-lg-6", "col-md-6", "col-6");
+    let divPhoneIcon = document.createElement("div");
+    divPhoneIcon.classList.add("icon-block");
+    let phoneIcon = document.createElement("img");
+    phoneIcon.src = "/pages/img/phone.svg";
+    phoneIcon.alt = "phone";
+    let phonenumber = document.createElement("div");
+    phonenumber.classList.add("text-charackteristik");
+    phonenumber.innerHTML = `<h1>Телефон</h1>\n<p>${phone}</p>`;
+    divPhoneIcon.appendChild(phoneIcon);
+    divPhone.appendChild(divPhoneIcon);
+    divPhone.appendChild(phonenumber);
+
+    divNameCars.appendChild(divTitle);
+    divPriceTitle.appendChild(divNameCars);
+    divInfo.appendChild(divPriceTitle);
+    divInfo.appendChild(divFio);
+    divInfo.appendChild(divEmail);
+    divInfo.appendChild(divPhone);
+    divOrderCard.appendChild(divInfo);
+    divOrder.appendChild(divOrderCard);
+
+    document.querySelector("#orders").appendChild(divOrder);
 }

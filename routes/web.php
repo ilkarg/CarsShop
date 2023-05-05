@@ -33,7 +33,7 @@ $router->post("api/v1/isAuthorized", "AuthController::isAuthorized");
 $router->post("api/v1/isAdmin", "AuthController::isAdmin");
 $router->post("api/v1/addFeedback", "LogicController::addFeedback");
 $router->post("api/v1/getAllFeedbacks", "LogicController::getAllFeedbacks");
-$router->post("api/v1/addOrder", "LogicController::addOrder");
+$router->post("api/v1/createOrder", "LogicController::createOrder");
 $router->post("api/v1/getAllOrders", "LogicController::getAllOrders");
 $router->post("api/v1/addPost", "PostController::addPost");
 $router->post("api/v1/getPosts", "PostController::getPosts");

@@ -29,12 +29,13 @@ class LogicController {
         global $router;
         $data = $router->getPostRouteData();
         if ($data != null) {
-            $order_model = new Order($data["name"], $data["email"], $data["phone"], $data["model"]);
-            $order = QueryController::addOrderQuery(
+            $order_model = new Order($data["name"], $data["email"], $data["phone"], $data["model"], $data["price"]);
+            $order = QueryController::createOrderQuery(
                 $order_model->name,
                 $order_model->email,
                 $order_model->phone,
-                $order_model->model
+                $order_model->model,
+                $order_model->price
             );
             echo $order;
         } else {
