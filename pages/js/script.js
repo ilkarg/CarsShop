@@ -83,9 +83,6 @@ function clearAddPostForm() {
 }
 
 function addPost() {
-    let date = new Date();
-    let hours = date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`;
-    let minutes = date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`; 
     let image = document.querySelector("#postImage").files[0];
     let formData = new FormData();
     formData.append("title", document.querySelector("#postTitle").value);
@@ -364,6 +361,9 @@ function createFeedback(fio, email, message) {
 }
 
 function addOrder() {
+    let orderModel = document.querySelector("#orderModel");
+    let arr = orderModel.options[orderModel.selectedIndex].innerText.split(" - ");
+    
     fetch(`${window.location.origin}/api/v1/createOrder`, {
         method: 'POST',
         headers: {
@@ -373,8 +373,8 @@ function addOrder() {
             name: document.querySelector("#orderName").value,
             email: document.querySelector("#orderEmail").value,
             phone: document.querySelector("#orderPhone").value,
-            model: document.querySelector("#orderModel").value,
-            price: "100.000 ₽"
+            model: arr[0],
+            price: arr[1]
         })
     }).then(function (response) {
         return response.json().then(function (resp) {
