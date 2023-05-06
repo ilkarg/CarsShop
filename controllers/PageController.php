@@ -31,62 +31,62 @@ class PageController {
     }
 
     public static function car1() {
-        $template = new Template(__DIR__ . "/../pages/car1.html");
+        $template = new Template(__DIR__ . "/../pages/car-1.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car2() {
-        $template = new Template(__DIR__ . "/../pages/car2.html");
+        $template = new Template(__DIR__ . "/../pages/car-2.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car3() {
-        $template = new Template(__DIR__ . "/../pages/car3.html");
+        $template = new Template(__DIR__ . "/../pages/car-3.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car4() {
-        $template = new Template(__DIR__ . "/../pages/car4.html");
+        $template = new Template(__DIR__ . "/../pages/car-4.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car5() {
-        $template = new Template(__DIR__ . "/../pages/car5.html");
+        $template = new Template(__DIR__ . "/../pages/car-5.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car6() {
-        $template = new Template(__DIR__ . "/../pages/car6.html");
+        $template = new Template(__DIR__ . "/../pages/car-6.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car7() {
-        $template = new Template(__DIR__ . "/../pages/car7.html");
+        $template = new Template(__DIR__ . "/../pages/car-7.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car8() {
-        $template = new Template(__DIR__ . "/../pages/car8.html");
+        $template = new Template(__DIR__ . "/../pages/car-8.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car9() {
-        $template = new Template(__DIR__ . "/../pages/car9.html");
+        $template = new Template(__DIR__ . "/../pages/car-9.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car10() {
-        $template = new Template(__DIR__ . "/../pages/car10.html");
+        $template = new Template(__DIR__ . "/../pages/car-10.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car11() {
-        $template = new Template(__DIR__ . "/../pages/car11.html");
+        $template = new Template(__DIR__ . "/../pages/car-11.html");
         echo View::createFromTemplate($template);
     }
 
     public static function car12() {
-        $template = new Template(__DIR__ . "/../pages/car12.html");
+        $template = new Template(__DIR__ . "/../pages/car-12.html");
         echo View::createFromTemplate($template);
     }
 
