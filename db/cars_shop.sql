@@ -32,7 +32,7 @@ CREATE TABLE `feedbacks` (
   `fio` text NOT NULL,
   `email` text NOT NULL,
   `message` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=latin1_bin;
 
 --
 -- Дамп данных таблицы `feedbacks`
@@ -53,7 +53,7 @@ CREATE TABLE `orders` (
   `email` text NOT NULL,
   `phone` text NOT NULL,
   `model` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=latin1_bin;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `posts` (
   `title` text NOT NULL,
   `body` text NOT NULL,
   `image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=latin1_bin;
 
 --
 -- Дамп данных таблицы `posts`
@@ -88,7 +88,7 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `login` text NOT NULL,
   `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=latin1_bin;
 
 --
 -- Дамп данных таблицы `users`
