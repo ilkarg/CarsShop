@@ -2,7 +2,7 @@
 
 // Подключение системных библиотек
 include __DIR__ . '/app/PHPRouter/Router.php';
-include __DIR__ . '/app/PHPOrm/MySQL.php';
+include __DIR__ . '/app/PHPOrm/SQLite.php';
 include __DIR__ . '/app/PHPTemplater/Template.php';
 include __DIR__ . '/app/PHPView/View.php';
 include __DIR__ . '/app/PHPRequester/Request.php';
@@ -16,7 +16,7 @@ use PHPRouter\Router;
 
 // Создание системных объектов
 $router = new Router();
-$orm = new MySQL("localhost", "root", "", "cars_shop", 3306);
+$orm = new SQLite(__DIR__ . "/db/cars_shop.db");
 $request = new Request();
 
 // Подключение контроллеров

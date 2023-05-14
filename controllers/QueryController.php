@@ -11,7 +11,7 @@ class QueryController {
         }
         global $orm;
         $orm->connect();
-        $user = R::find("users", "BINARY login = ? AND password = ?", [$login, Hash::sha256($password, "", 1)]);
+        $user = R::find("users", "login = ? AND password = ?", [$login, Hash::sha256($password, "", 1)]);
         $user = $user[array_key_first($user)];
         if ($user == null) {
             return json_encode(array("response" => "Неверные логин или пароль"));
