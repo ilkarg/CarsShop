@@ -148,7 +148,9 @@ function isAdmin() {
                 if (window.location.pathname === "/admin") {
                     window.location = '/admin/news';
                 }
-            }
+            } else if (window.location.pathname === "/admin" || window.location.pathname.startsWith("/admin")) {
+                window.location = '/';
+            } 
         });
     });
 }
